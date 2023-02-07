@@ -1,7 +1,5 @@
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        slowC=0
-        fastC=0
         slowN=head
         fastN=head
         
