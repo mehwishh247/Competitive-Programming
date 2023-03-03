@@ -7,7 +7,7 @@ class Solution:
             if sqr==x:
                 return mid
             elif sqr<x:
-                if (mid+1)**2>x:
+                if (mid+1)*(mid+1)>x:
                     return mid
                 low=mid+1
             else:
