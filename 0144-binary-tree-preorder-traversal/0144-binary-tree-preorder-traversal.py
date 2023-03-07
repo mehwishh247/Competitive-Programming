@@ -13,9 +13,6 @@ class Solution:
             array.append(node.val)
             leftArr=sol(node.left,array)
             rightArr=sol(node.right,array)
-          
-
-       
             
-            return leftArr
+            return rightArr
         return sol(root,[])
