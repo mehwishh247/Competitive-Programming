@@ -1,11 +1,19 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        result=[]
+        tuples = []
         for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    result.append(i)
-                    result.append(j)
-        return result
+            tuples.append((nums[i],i))
+        tuples.sort()
+        low,hi=0,len(nums)-1
+        while low<hi:
+            tot = tuples[low][0]+tuples[hi][0] 
+            if tot == target:
+                return [tuples[low][1],tuples[hi][1]]
+            if tot>target:
+                hi-=1
+            else:
+                low+=1
+        
+            
         
         
