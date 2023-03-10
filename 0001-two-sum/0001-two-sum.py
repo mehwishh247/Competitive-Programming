@@ -1,5 +1,6 @@
 class Solution(object):
     def twoSum(self, nums, target):
+        counter=0
         tuples = []
         for i in range(len(nums)):
             tuples.append((nums[i],i))
@@ -14,6 +15,6 @@ class Solution(object):
             else:
                 low+=1
         
-            
+        return counter
         
         
