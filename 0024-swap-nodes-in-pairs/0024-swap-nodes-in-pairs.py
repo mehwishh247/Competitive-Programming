@@ -7,23 +7,18 @@
         
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = head
-        def solve(prev, node):
+        # prev = head
+        def solve(node):
             if not node or not node.next:
                 return node
             
             node2 = node.next
             tail = node2.next
             node2.next = node
-            node.next = solve(node, tail)
-            
-            if prev == head:
-                return node2
-            else:
-                prev.next = node2
-                return node2
-            
-        return solve(prev, head)
+            node.next = solve(tail)
+            return node2
+        
+        return solve(head)
 
             
             
