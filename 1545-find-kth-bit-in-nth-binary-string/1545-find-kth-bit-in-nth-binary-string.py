@@ -3,7 +3,7 @@ class Solution:
             
             def solver(n,k):
                 if n==1:
-                    return "0"
+                    return 0
                 
                 size = 2**n-1
                 
@@ -12,11 +12,11 @@ class Solution:
                 elif k>size//2+1:
                     backsize = 2**(n-1)-1 
                     gap = k-(size//2+1)
-                    return str(1-int(solver(n-1,backsize-gap+1)))
+                    return 1-solver(n-1,backsize-gap+1)
                 else:
-                    return '1'
+                    return 1
                     
-            return solver(n, k)
+            return str(solver(n, k))
 
 
     
