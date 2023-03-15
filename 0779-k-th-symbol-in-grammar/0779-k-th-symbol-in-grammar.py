@@ -4,13 +4,10 @@ class Solution:
         def solver(n,k):
             if n==1:
                 return 0
-            
             if k%2:
-                newK=k//2+1
-                return solver(n-1,newK)
-            newK = k//2
-            return  1-solver(n-1,newK)
-            
+                return solver(n-1,k//2+1)
+            return  1-solver(n-1,k//2)
+        
         return solver(n,k)
 
         
