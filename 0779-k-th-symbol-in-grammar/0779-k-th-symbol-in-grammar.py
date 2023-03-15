@@ -1,14 +1,14 @@
 class Solution:
     def kthGrammar(self, n: int, k: int) -> int:
         
-        def solver(n,k):
-            if n==1:
-                return 0
-            if k%2:
-                return solver(n-1,k//2+1)
-            return  1-solver(n-1,k//2)
+        if n==1:
+            return 0
+        if k%2:
+            return self.kthGrammar(n-1,k//2+1)
+        return  1-self.kthGrammar(n-1,k//2)
         
-        return solver(n,k)
+    
+        
 
         
         
