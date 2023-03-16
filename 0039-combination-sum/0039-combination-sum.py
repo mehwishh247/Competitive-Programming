@@ -2,6 +2,7 @@ class Solution:
     
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         self.ans=[]
+        candidates.sort()
         def recSol(idx,summ,array):
             if summ>target:
                 return 
@@ -17,7 +18,6 @@ class Solution:
                 out = array.pop()
                 summ-=out   
         recSol(0,0,[])
-        
         return self.ans
                 
                 
