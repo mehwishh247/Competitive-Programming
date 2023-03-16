@@ -18,11 +18,10 @@ class Solution:
                 array+=ltr
                 recur(array,idx+1)
                 array.pop()
+                
+        if len(digits)==0 :
+            return []
         
-        if len(digits)==0:
-            return ans
-        # n=len(digits)-1 if len(digits)>1 else 1 if len(digits)==1 else 0
-        # for i in range(n):
         recur( [],0)
         
         return ans
