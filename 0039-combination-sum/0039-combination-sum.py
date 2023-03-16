@@ -1,14 +1,13 @@
 class Solution:
     
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        self.ans=[]
-        candidates.sort()
+        ans=[]
         def recSol(idx,summ,array):
             if summ>target:
                 return 
             if summ==target:
                 array = array.copy()
-                self.ans.append(array)
+                ans.append(array)
                 return
                 
             for i in range(idx,len(candidates)):
@@ -18,7 +17,7 @@ class Solution:
                 out = array.pop()
                 summ-=out   
         recSol(0,0,[])
-        return self.ans
+        return ans
                 
                 
         
