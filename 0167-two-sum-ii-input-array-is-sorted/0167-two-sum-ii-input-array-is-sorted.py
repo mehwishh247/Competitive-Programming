@@ -3,17 +3,18 @@ class Solution:
     
      def twoSum(self, numbers: List[int], target: int) -> List[int]:
             
-            dic = defaultdict(int)
+            low,hi=0,len(numbers)-1
             
-            
-            
-            for i,num in enumerate(numbers):
+            while low<hi:
+                summ=numbers[low]+numbers[hi]
+                if summ==target:
+                    return[low+1,hi+1]
                 
-                if dic[target-num]:
-                    j=dic[target-num]
-                    return [j,i+1]
-                
-                dic[num]=i+1
+                if summ<target:
+                    low+=1
+                else:
+                    hi-=1
+                    
                     
             
         
