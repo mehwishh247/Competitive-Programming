@@ -8,19 +8,18 @@ class Solution:
     def bstFromPreorder(self, arr: List[int]) -> Optional[TreeNode]:
         
         root = TreeNode(arr[0])
-        stack =[(root,arr[0])]
+        stack =[root]
         
         for i in range(1,len(arr)):
-            if arr[i]<stack[-1][0].val:
-                newNode= TreeNode(arr[i])
-                stack[-1][0].left = newNode 
-                stack.append((newNode,arr[i]))
+            newNode = TreeNode(arr[i])
+            if arr[i]<stack[-1].val:
+                stack[-1].left = newNode 
             else:
                 temp = None
-                while stack and stack[-1][0].val<arr[i]:
+                while stack and stack[-1].val<arr[i]:
                     temp = stack.pop()
-                newNode = TreeNode(arr[i])
-                temp[0].right= newNode
-                stack.append((newNode,arr[i]))
+                temp.right= newNode
+            
+            stack.append(newNode)
 
         return root
