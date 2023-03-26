@@ -1,7 +1,6 @@
 class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
     
-
             arr = [x for x in range(1,n+1)]
             cap = n
             c=k-1
