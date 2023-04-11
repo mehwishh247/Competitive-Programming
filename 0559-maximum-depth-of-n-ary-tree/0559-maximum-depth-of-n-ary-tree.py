@@ -14,6 +14,9 @@ class Solution:
                     return 0
                 if not node.children:
                     return 1
-                return max([height(child) for child in node.children])+1
+                mxx = float('-inf')
+                for child in node.children:
+                    mxx = max(mxx,height(child))
+                return mxx+1
 
             return height(root)
