@@ -1,8 +1,11 @@
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graphM: List[List[int]]) -> List[List[int]]:
+        graph = defaultdict(list)
+        for i in range(len(graphM)):
+            graph[i]=graphM[i]
         ans = []
         temp=[]
-        end = len(graph)-1
+        end = len(graphM)-1
         def can_reach(start):
             if start==end:
                 temp.append(end)
