@@ -10,11 +10,10 @@ class Solution:
         
         map = [set(),set()]
         def result(node,group):
-            map[group].add(node)
             for friend in graph[node]:
                 if friend in map[group]:
                     return False
-                # map[1-group].add(friend)
+                map[1-group].add(friend)
                 if friend not in totalVisit:
                     totalVisit.add(friend)
                     if not result(friend,1-group):
