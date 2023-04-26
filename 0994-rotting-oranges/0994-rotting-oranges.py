@@ -3,11 +3,10 @@ class Solution:
     def isValid(self,dr,board):
         return (0<=dr[0]<len(board)) and (0<=dr[1]<len(board[0])) and (board[dr[0]][dr[1]]==1)
     def orangesRotting(self, grid: List[List[int]]) -> int:
-    
-        visited = set()
+
         queue = deque()
         
-        # find all rottens and add them to the que and visisted
+        # find all rottens and add them to the que 
         
         rowL = len(grid)
         colL = len(grid[0])
@@ -15,7 +14,6 @@ class Solution:
         for row in range(rowL):
             for col in range(colL):
                 if grid[row][col]==2:
-                    visited.add((row,col,0))
                     queue.append((row,col,0))
 
         level=0
