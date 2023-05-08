@@ -1,14 +1,20 @@
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         
-        stones.sort()
         
-        while len(stones)!=1:
-            rank1,rank2 = stones[-1],stones[-2]
-            stones[-1]=rank1-rank2
-            del stones[-2]
-
-            stones.sort()
+        heapify(stones)
+        
+        while len(stones)>=2:
+            temp=[]
+            while len(stones)>2:
+                temp.append(heappop(stones))
+            large,largest=heappop(stones),heappop(stones)
             
-            
-        return stones[0]
+            if largest-large:
+                temp.append(largest-large)
+            for val in temp:
+                heappush(stones,val)
+        
+        if len(stones):
+            return stones[0]
+        return 0
