@@ -16,13 +16,11 @@ class Solution:
         def dfs(node):
             if colors[node]==1:
                 return False
-            if colors[node]==2:
-                return True
             
             colors[node]=1
             
             for child in graph[node]:
-                if colors[node]==2:
+                if colors[child]==2:
                     continue
                 if not dfs(child):
                     return False
