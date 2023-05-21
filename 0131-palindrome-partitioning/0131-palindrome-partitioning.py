@@ -8,6 +8,7 @@ class Solution:
             if index == n:
                 answer.append(temp[:])
                 return
+            
             for i in range(index,n):
                 if s[index:i+1]==s[index:i+1][::-1]:
                     temp.append(s[index:i+1])
