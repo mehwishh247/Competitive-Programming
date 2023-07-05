@@ -2,14 +2,14 @@ class Solution:
     def findPrimePairs(self, n: int) -> List[List[int]]:
         
         def generate_prime_numbers(n):
-            primes = [True] * (n + 1)
-            primes[0] = primes[1] = False
+            primes = [1] * (n + 1)
+            primes[0] = primes[1] = 0
 
             p = 2
             while p * p <= n:
                 if primes[p]:
                     for i in range(p * p, n + 1, p):
-                        primes[i] = False
+                        primes[i] = 0
                 p += 1
 
             prime_numbers = [num for num, is_prime in enumerate(primes) if is_prime]
@@ -25,6 +25,5 @@ class Solution:
             if pr<=n-pr and n-pr in look:
                 ans.append([pr,n-pr])
 
-        
         return ans
     
