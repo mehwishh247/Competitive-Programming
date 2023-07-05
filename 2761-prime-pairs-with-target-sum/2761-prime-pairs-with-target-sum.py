@@ -17,18 +17,14 @@ class Solution:
         
         allPrimes = generate_prime_numbers(n)
         
-        look = set(allPrimes)
-        visited = set()
-        
+        look = set(allPrimes)        
         ans = []
         
-        for pr in allPrimes:   
-            if pr not in visited and n-pr in look:
+        for pr in allPrimes:  
+            
+            if pr<=n-pr and n-pr in look:
                 ans.append([pr,n-pr])
-                visited.add(pr)
-                visited.add(n-pr)
-        return ans
 
         
-        
+        return ans
     
