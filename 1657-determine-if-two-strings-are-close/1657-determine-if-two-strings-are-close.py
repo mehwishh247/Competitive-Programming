@@ -4,8 +4,11 @@ class Solution:
         len1,len2 = len(word1),len(word2)
         if len1!=len2:return False
         
-        got,need = Counter(word1),Counter(word2)           
+        got,need = Counter(word1),Counter(word2)       
         
-        ans1,ans2 =  sorted(got.values()) == sorted(need.values()),sorted(got.keys()) == sorted(need.keys())
+        if set(got.keys()) != set(need.keys()): return False
+        
+        if sorted(got.values()) != sorted(need.values()): return False
+        
 
-        return ans1 and ans2
+        return True
