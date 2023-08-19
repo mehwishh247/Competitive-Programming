@@ -5,7 +5,6 @@ class Solution:
         n=len(intervals)
         result = [intervals[0]]
         
-        print(intervals)
         for i in range(1,n):
             
             start,end = intervals[i]
