@@ -5,9 +5,9 @@ class Solution:
         
         def dfs(screen,clipboard,steps):
             
-            pos =  mastawesha[(screen,clipboard,steps)]
+            #pos =  mastawesha[(screen,clipboard,steps)]
             
-            if pos != -1: return pos
+            #if pos != -1: return pos
             
             if len(screen)==n: return steps
             
@@ -22,7 +22,7 @@ class Solution:
                 copy = dfs(screen,screen,steps+1)
             
             melse = min(copy,paste)
-            mastawesha[(screen,clipboard,steps)] = melse
+            #mastawesha[(screen,clipboard,steps)] = melse
             
             return melse 
                 
