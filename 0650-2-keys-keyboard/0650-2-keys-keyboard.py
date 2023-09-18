@@ -1,28 +1,34 @@
 class Solution:
     def minSteps(self, n: int) -> int:
-        if n == 1:
-            return 0
-        # create a dp array to store the minsteps from 1 to n.
-        dp = [0] * (n + 1)
-        dp[2] = 2
-        for i in range(3, n + 1):
-            # find the largest prime factors for every i.
-            primefactor = self.primefactor(i)
-            # applying step 2 here
-            if primefactor == i:
-                dp[i] = primefactor
-            # applying step 3 here
-            else:
-                dp[i] = dp[primefactor] + dp[i // primefactor]
-        return dp[n]
+        
+        mastawesha = defaultdict(lambda:-1)
+        
+        def dfs(screen,clipboard,steps):
+            
+            pos =  mastawesha[(screen,clipboard,steps)]
+            
+            if pos != -1: pos
+            
+            if len(screen)==n: return steps
+            
+            if len(screen)>n: return float('inf')
+            
+            copy = paste = float('inf')
+            
+            if len(clipboard) != 0:
+                paste = dfs(screen+clipboard,clipboard,steps+1)
+            
+            if len(clipboard) != len(screen):
+                copy = dfs(screen,screen,steps+1)
+            
+            melse = min(copy,paste)
+            mastawesha[(screen,clipboard,steps)] = melse
+            
+            return melse 
+                
 
-    # code to find largest prime factor
-    def primefactor(self, n: int) -> int:
-        res = 2
-        for i in range(2, int(n ** 0.5) + 1):
-            while n % i == 0:
-                res = i
-                n //= i
-        if n > 1:
-            res = max(res, n)
-        return res
+        
+            
+        return dfs("A","",0)
+
+       
