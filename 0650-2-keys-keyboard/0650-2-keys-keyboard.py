@@ -7,7 +7,7 @@ class Solution:
             
             pos =  mastawesha[(screen,clipboard,steps)]
             
-            if pos != -1: pos
+            if pos != -1: return pos
             
             if len(screen)==n: return steps
             
