@@ -15,7 +15,7 @@ class Solution:
                 if node not in visited:
                     visited.add(node)
                     for i in neighbors[node]:
-                        if i not in visited:
+                        # if i not in visited:
                             queue.append(i)
             return False
         
