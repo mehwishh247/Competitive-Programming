@@ -8,8 +8,6 @@ class Trie:
         curr = self.root
         
         for c in word:
-            if c not in curr.kids:
-                curr.kids[c] = TrieNode()
             curr = curr.kids[c]
         curr.is_end = True
             
@@ -39,7 +37,7 @@ class Trie:
 class TrieNode:
     def __init__(self):
         self.is_end  = False
-        self.kids = defaultdict(list)
+        self.kids = defaultdict(lambda: TrieNode())
 
 
 # Your Trie object will be instantiated and called as such:
