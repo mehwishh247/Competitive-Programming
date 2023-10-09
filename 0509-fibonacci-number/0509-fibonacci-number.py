@@ -2,11 +2,14 @@ class Solution:
     def fib(self, n: int) -> int:
         if n==0:
             return 0
-        arr= deque([0,1])
+        
+        nminus1,nminus2 = 0,1
         
         for i in range(1,n):
-            arr.append(arr[-1]+arr[-2])
-            arr.popleft()
+            
+            answer = nminus1+nminus2
+            nminus1 = nminus2
+            nminus2 = answer
         
-        return arr[-1]
+        return nminus2
         
