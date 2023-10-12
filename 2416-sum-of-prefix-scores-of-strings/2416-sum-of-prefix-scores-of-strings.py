@@ -16,7 +16,6 @@ class TrieNode:
     def __init__(self):
         self.have = [None]*26
         self.pc = 0
-        self.wc = 0
         
 class Trie:
     
@@ -36,7 +35,6 @@ class Trie:
             curr.have[idx].pc+=1
             curr = curr.have[idx]
             
-        curr.wc +=1
         
     def score(self,word):
         
