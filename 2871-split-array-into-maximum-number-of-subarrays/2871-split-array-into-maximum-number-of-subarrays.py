@@ -1,6 +1,6 @@
 class Solution:
     def maxSubarrays(self, nums: List[int]) -> int:
-        
+
         n = len(nums)
         score = 2**31-1
         count = 0
@@ -10,6 +10,9 @@ class Solution:
                 count += 1
                 score = 2**31-1
             else:
+                
                 score &= num
-        
+                
         return count if count != 0 else 1
+                
+        
