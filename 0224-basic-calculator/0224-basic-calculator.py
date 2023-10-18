@@ -1,25 +1,14 @@
 class Solution:
     def calculate(self, s: str) -> int:
         
-        # Input: s = "(1+(4+5+2)-3)+(6+8)"
-        # Output: 23
-        
-        '''
-            "(3-(5-8-13-4))"
-            
-        
-        '''
-        
-        
         s = s.replace(" ",'')
         stack = []
         
-        for i,ltr in enumerate(s): #  3 * 10^5
+        for i,ltr in enumerate(s): 
 
-            # print(stack)
             if ltr == ")":
                 temp = "" 
-                while stack[-1] != "(":  # 3 * 10^5 
+                while stack[-1] != "(": 
                     val = stack.pop()
                     
                     if len(val) > 1:
