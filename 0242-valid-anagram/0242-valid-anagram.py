@@ -6,14 +6,8 @@ class Solution:
         
         if len(s) != len(t): return False
         
-        sorted_t = sorted(t)
-        sorted_s = sorted(s)
-
-        for i in range(len(t)):
-            
-            if sorted_t[i]!=sorted_s[i]:
-                return False
-        return True
-            
+        countT,countS = Counter(t),Counter(s)
         
-        
+        return countT==countS
+            
+            
