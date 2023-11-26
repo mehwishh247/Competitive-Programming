@@ -3,22 +3,22 @@ class Solution:
     
      def twoSum(self, numbers: List[int], target: int) -> List[int]:
             
-            low,hi=0,len(numbers)-1
+            '''
+                    [2,7,7,11,13,14,14,15]   21
+                       i              j
             
-            while low<hi:
-                summ=numbers[low]+numbers[hi]
-                if summ==target:
-                    return[low+1,hi+1]
+            '''
+            n = len(numbers)
+            l,r, = 0,n-1
+            
+            while l<r:
                 
-                if summ<target:
-                    low+=1
-                else:
-                    hi-=1
+                curr_sum = numbers[l]+numbers[r]
+                
+                if curr_sum == target: return [l+1,r+1]
+                
+                if curr_sum>target: r -= 1
+                else: l += 1
                     
-                    
+            return []
             
-        
-        
-      
-            
-        
