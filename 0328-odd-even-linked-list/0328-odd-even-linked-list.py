@@ -9,14 +9,14 @@ class Solution:
         if not head:
             return None
         
-        slow,fast=head,head.next
+        odd,even=head,head.next
         evenhead = head.next
         
-        while fast and fast.next:
-            slow.next = slow.next.next
-            slow = slow.next  
-            fast.next = fast.next.next
-            fast = fast.next
+        while even and even.next:
+            odd.next = odd.next.next
+            even.next = even.next.next
+            odd = odd.next  
+            even = even.next
         
-        slow.next=evenhead
+        odd.next=evenhead
         return head
